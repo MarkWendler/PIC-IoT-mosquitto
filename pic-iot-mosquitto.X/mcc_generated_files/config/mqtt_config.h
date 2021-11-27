@@ -67,7 +67,7 @@
 
 // Timeout is calculated on the basis of clock frequency.
 // This macro needs to be changed in accordance with the clock frequency.
-#define SECONDS (uint32_t)1000
+#define SECONDS (uint32_t)8000
 #endif /* TCPIP_BSD */
 
 #ifdef TCPIP_LITE

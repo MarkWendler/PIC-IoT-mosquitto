@@ -79,11 +79,11 @@
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
-      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.libraries.networking.winc.library.WINCLibrary" version="1.1.1"/>
       <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.mcu16.Mcu16PeripheralLibrary" version="1.170.0"/>
+      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.boardsupportlibrary.BoardSuppportLibrary" version="1.12.0"/>
       <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.foundationservices.library.FoundationServicesLibrary" version="0.2.2"/>
       <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.MQTTLibrary" version="2.0.1"/>
-      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.boardsupportlibrary.BoardSuppportLibrary" version="1.12.0"/>
+      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.libraries.networking.winc.library.WINCLibrary" version="1.1.1"/>
    </usedLibraries>
    <tokenMap class="java.util.TreeMap">
       <entry>
@@ -116,11 +116,11 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="CLOCK_FOSC"/>
-         <value>8000000</value>
+         <value>32000000</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="CLOCK_FOSC2"/>
-         <value>4000000</value>
+         <value>16000000</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="CLOCK_FRC"/>
@@ -140,7 +140,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="CLOCK_USB"/>
-         <value/>
+         <value>48000000</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="ClockSource"/>
@@ -148,7 +148,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="ClockSwitching"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="CpuDivisor"/>
@@ -240,7 +240,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="FeaturePllCpuDivScaler"/>
-         <value>NOTAVAILABLE</value>
+         <value>AVAILABLE</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="FeaturePllDisplayScaler"/>
@@ -264,7 +264,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="FeaturePllScaler"/>
-         <value>NOTAVAILABLE</value>
+         <value>AVAILABLE</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="FeaturePllTwoStagePostScaler"/>
@@ -332,19 +332,19 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="PllClock"/>
-         <value/>
+         <value>96000000</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="PllEnable"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="PllPrescaler"/>
-         <value>DISABLED</value>
+         <value>1:2</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="Pll_Dependent_Clock_Switching"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="REFCLKOUT"/>
@@ -403,16 +403,24 @@
          <value>Center frequency</value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="USBFrequency"/>
+         <value>48000000</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="UpdateCpuDivisorClock"/>
-         <value/>
+         <value>32000000</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="UpdateOSCFractionalClock"/>
-         <value>FRC</value>
+         <value>FRCPLL</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="UpdatePllPrescalerClock"/>
-         <value/>
+         <value>4000000</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="UpdatePllPrescalerOptions"/>
+         <value>[1:2, 1:3, 1:4, 4:1, DISABLED]</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="UseSosc"/>
@@ -1352,7 +1360,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCCON"/>
-         <value>0</value>
+         <value>256</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCDIV"/>
@@ -1464,7 +1472,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCCON" settingAlias="NOSC"/>
-         <value>FRC</value>
+         <value>FRCPLL</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCCON" settingAlias="OSWEN"/>
@@ -1784,7 +1792,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RA10"/>
-         <value/>
+         <value>IO_SW1_RA10</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RA11"/>
@@ -1816,7 +1824,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RA7"/>
-         <value/>
+         <value>IO_SW0_RA7</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RA8"/>
@@ -1868,7 +1876,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RB4"/>
-         <value/>
+         <value>IO_ERROR_RB4</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RB5"/>
@@ -1904,15 +1912,15 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RC3"/>
-         <value/>
+         <value>IO_DATA_RC3</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RC4"/>
-         <value/>
+         <value>IO_CONN_RC4</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RC5"/>
-         <value/>
+         <value>IO_WIFI_RC5</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RC6"/>
@@ -1968,7 +1976,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RA10"/>
-         <value>disabled</value>
+         <value>input</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RA11"/>
@@ -2000,7 +2008,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RA7"/>
-         <value>disabled</value>
+         <value>input</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RA8"/>
@@ -2052,7 +2060,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RB4"/>
-         <value>disabled</value>
+         <value>output</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RB5"/>
@@ -2088,15 +2096,15 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RC3"/>
-         <value>disabled</value>
+         <value>output</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RC4"/>
-         <value>disabled</value>
+         <value>output</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RC5"/>
-         <value>disabled</value>
+         <value>output</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RC6"/>
@@ -2204,7 +2212,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RA10"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RA11"/>
@@ -2236,7 +2244,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RA7"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RA8"/>
@@ -2288,7 +2296,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RB4"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RB5"/>
@@ -2324,15 +2332,15 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RC3"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RC4"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RC5"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RC6"/>
@@ -2896,11 +2904,11 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="trisUserSetRC4"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="trisUserSetRC5"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="trisUserSetRC6"/>
@@ -5568,7 +5576,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="ANSC"/>
-         <value>8</value>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="IOCFA"/>
@@ -5636,11 +5644,11 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="LATB"/>
-         <value>0</value>
+         <value>16</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="LATC"/>
-         <value>2</value>
+         <value>58</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="ODCA"/>
@@ -5800,11 +5808,11 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="TRISB"/>
-         <value>65535</value>
+         <value>65519</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="TRISC"/>
-         <value>760</value>
+         <value>704</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="ANSA" settingAlias="ANSELA0"/>
@@ -5872,7 +5880,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="ANSC" settingAlias="ANSELC3"/>
-         <value>analog</value>
+         <value>digital</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="IOCFA" settingAlias="IOCFA0"/>
@@ -6760,7 +6768,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="LATB" settingAlias="LATB4"/>
-         <value>clear</value>
+         <value>set</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="LATB" settingAlias="LATB5"/>
@@ -6796,15 +6804,15 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="LATC" settingAlias="LATC3"/>
-         <value>clear</value>
+         <value>set</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="LATC" settingAlias="LATC4"/>
-         <value>clear</value>
+         <value>set</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="LATC" settingAlias="LATC5"/>
-         <value>clear</value>
+         <value>set</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="LATC" settingAlias="LATC6"/>
@@ -7336,7 +7344,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB4"/>
-         <value>input</value>
+         <value>output</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB5"/>
@@ -7372,15 +7380,15 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="TRISC" settingAlias="TRISC3"/>
-         <value>input</value>
+         <value>output</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="TRISC" settingAlias="TRISC4"/>
-         <value>input</value>
+         <value>output</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="TRISC" settingAlias="TRISC5"/>
-         <value>input</value>
+         <value>output</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="TRISC" settingAlias="TRISC6"/>
@@ -8296,11 +8304,11 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="SPIMASTER" name="pubSubSPIMASTERConfigurations"/>
-         <value>2758.3345785833067</value>
+         <value>6883.831993596762</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="SPIMASTER" name="pubSubspiSubscriber"/>
-         <value>3054.3309767247383</value>
+         <value>4723.0750471287265</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="SPIMASTER" name="spiSubscriber"/>
@@ -8312,7 +8320,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="SPIMASTER" name="validate"/>
-         <value>0.3984832626890781</value>
+         <value>0.09898196343024801</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.PropertyTokenKey" moduleName="SPIMASTER" name="spiConfigurations%0%dataInputSample"/>
@@ -8788,11 +8796,11 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="System Module" registerAlias="FOSC"/>
-         <value>179</value>
+         <value>99</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="System Module" registerAlias="FOSCSEL"/>
-         <value>120</value>
+         <value>9</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="System Module" registerAlias="FPOR"/>
@@ -8836,7 +8844,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="FOSC" settingAlias="FCKSM"/>
-         <value>CSDCMD</value>
+         <value>CSECMD</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="FOSC" settingAlias="IOL1WAY"/>
@@ -8848,7 +8856,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="FOSC" settingAlias="PLLSS"/>
-         <value>PLL_PRI</value>
+         <value>PLL_FRC</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="FOSC" settingAlias="POSCMOD"/>
@@ -8860,7 +8868,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="FOSCSEL" settingAlias="FNOSC"/>
-         <value>FRC</value>
+         <value>FRCPLL</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="FOSCSEL" settingAlias="IESO"/>
@@ -8868,7 +8876,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="FOSCSEL" settingAlias="PLLMODE"/>
-         <value>DISABLED</value>
+         <value>PLL96DIV2</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="FPOR" settingAlias="BOREN"/>
@@ -8948,7 +8956,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TIMEOUTDRIVER" name="pubSubTIMEOUTDRIVER_TIMER/genericTimeoutInterfaceV2"/>
-         <value>365.9172264802246</value>
+         <value>1070.2344405792842</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TIMEOUTDRIVER" name="usecaseComboSettings"/>
@@ -8968,7 +8976,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR1" name="TimerFrequency"/>
-         <value>4000000</value>
+         <value>16000000</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR1" name="actualPeriod"/>
@@ -8996,7 +9004,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR1" name="localClockFreq"/>
-         <value>4000000</value>
+         <value>16000000</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR1" name="maxPeriod"/>
@@ -9008,7 +9016,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR1" name="prescaleDivisor"/>
-         <value>64</value>
+         <value>256</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR1" name="prescaledFreq"/>
@@ -9112,7 +9120,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="TMR1" registerAlias="TCON"/>
-         <value>32800</value>
+         <value>32816</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="TMR1" registerAlias="TMR"/>
@@ -9124,7 +9132,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR1" registerAlias="TCON" settingAlias="TCKPS"/>
-         <value>1:64</value>
+         <value>1:256</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR1" registerAlias="TCON" settingAlias="TCS"/>
@@ -9180,7 +9188,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="UART1" name="BaudRateError"/>
-         <value>0.160</value>
+         <value>-0.080</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="UART1" name="DataBits"/>
@@ -9192,7 +9200,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="UART1" name="InternalClock"/>
-         <value>4000000</value>
+         <value>16000000</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="UART1" name="Parity"/>
@@ -9460,7 +9468,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="UART1" registerAlias="UBRG"/>
-         <value>103</value>
+         <value>416</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="UART1" registerAlias="UMODE"/>
@@ -9484,7 +9492,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="UART1" registerAlias="UBRG" settingAlias="BRG"/>
-         <value>103</value>
+         <value>416</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="UART1" registerAlias="UERI" settingAlias="enable"/>
@@ -9684,15 +9692,15 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="WINC15XX" name="prevPassword"/>
-         <value>12345678</value>
+         <value>mark1991</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="WINC15XX" name="pubSubWINC15XX_SPIMASTER/interfaceV2"/>
-         <value>5124.836287465405</value>
+         <value>3532.173626514451</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="WINC15XX" name="ssid"/>
-         <value>hotspot</value>
+         <value>Wendler</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="WINC15XX" name="wifiInterfaceStatus"/>
@@ -9700,7 +9708,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="WINC15XX" name="wifipass"/>
-         <value>12345678</value>
+         <value>mark1991</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="WINC15XX" name="wincCS"/>
@@ -9723,350 +9731,350 @@
          <value>RA8</value>
       </entry>
    </tokenMap>
-   <generatedFileHashHistoryMap class="java.util.TreeMap">
+   <generatedFileHashHistoryMap class="java.util.HashMap">
+      <entry>
+         <file>mcc_generated_files/winc/m2m/m2m_wifi.h</file>
+         <hash>b179b576c5fa127e144921bc50d6e5c705f62f8067229dd9af9c96e1e3f511b2</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/interrupt_manager.h</file>
+         <hash>185009b0f3b746e00e8c09637f547be83f31ef1a32d40a3870614653af97c273</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/mqtt/mqtt_packetTransfer_interface.h</file>
+         <hash>c9506eba58052554093cd95d99b8be4dea603d70ae55da97ac65a1e6a27a2e6e</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/config/conf_winc.h</file>
+         <hash>e7bd257f7c5ffef54ba09e506301d996b737b34feef59eb5d4ca4f3cd7479cb1</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/common/winc_defines.h</file>
+         <hash>89d82b8cc3db4bb58d8346db1c6b6ce7bfd8dfed078993e7613043188fce00c0</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/m2m/m2m_ssl.c</file>
+         <hash>50ec8a91074744056c71efcfffb3a25f44495b2ccd927f2bbdc1069385a251f2</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/system.c</file>
+         <hash>d3ce0770cc5d01469e5b7cce25ba8a1993bcf6accd128362662d7a42230ebf31</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/docs/mqtt_documentation/Microchip MQTT Client Library.docx</file>
+         <hash>4d6eed8a8f315b29ff8796637e92b489514062415ad304abd347a4a58f6da58d</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/common/winc_registers.h</file>
+         <hash>2209cd7c94452ed454197a9ca5716e708bab810f67065d9e1b1836b6936f2dc2</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/common/ecc_types.h</file>
+         <hash>2cfd895d1cd5c63e48a34b855becda55947689f9e9751c543431a26baabe08bd</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/clock.h</file>
+         <hash>4830fd0d2a28e179988060d6fe5b577990cde1d70c747ddd23ae076a801e2088</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/m2m/m2m_ssl.h</file>
+         <hash>6450c81717635dca5ffb3bf941548ee7db123a07151ffd94f85555b9add3ba5e</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/clock.c</file>
+         <hash>d8a8043791c56a9edab5753e3a919184aa6858cdcb22c96db7b259b974816652</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/delay.h</file>
+         <hash>dda77102dba9adc0f9aef1c8c542cfee6d6cccc96446f4cd1bf07be2150a4d95</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/m2m/m2m_wifi.c</file>
+         <hash>99ba0b52461372454b01f88c2cde3a2fc81ee7a029d52e2f0ad57a703356291c</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/docs/timeout.dox</file>
+         <hash>3c65d3776f241b479b3fd6742bf67f99db0b35fafc6d7d4c4f17bb0de1eadac1</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/driver/winc_spi.c</file>
+         <hash>71cd14676f4f54fd13c6a51f9512eda2e0cafca12e357a11e4aa6f85b6e0cce6</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/driver/winc_spi.h</file>
+         <hash>15b7f2632e2f40b4dccff1da1cec2908a69543eff9c87089f114ee3b904ed174</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/common/winc_debug.h</file>
+         <hash>f03094265eda1838b4b8fc721727f07ed688f0aa60a008b5bd82dcc68f7afb23</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/mqtt/mqtt_comm_bsd/mqtt_comm_layer.h</file>
+         <hash>06bb656e465cebac964c5a2f4837d30f4636f84bd3cb5a78a9a904db5fbf8de5</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/mcc.h</file>
+         <hash>b536067a428393baf5eac695e1ca4792155edb7a2631357290c363b9f1ac13a0</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/mqtt/mqtt_packetTransfer_interface.c</file>
+         <hash>95c54dcfde2ad6136ce6611f90a21f453f76610671396b3b83321b0aa0735c0a</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/docs/spi.dox</file>
+         <hash>518908892e2d8bc846cfc4b846e70d96c4f59fab7dbddc55fadee679aeaa9697</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/mqtt/mqtt_comm_bsd/mqtt_comm_layer.c</file>
+         <hash>28ffd4d8ae746156e7eeda587370dc368043ed3cc7b821888d5575fd12b10c97</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/interrupt_manager.c</file>
+         <hash>09bca2dfd0e9a8a24a0111314e709b2aee396312775f422c17a298fe33492f52</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/mcc.c</file>
+         <hash>66a2eedc99c8bce81198406e3fb2214a6919241c440a72723cf042d2ce6dea79</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/pin_manager.c</file>
+         <hash>7d6ddbfaafadc75cb84320c3124ddb11302f1e690ff4553474524366cc795f5a</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/mqtt/mqtt_winc_adapter.c</file>
+         <hash>38226893c43452f6416de2898d28199853e9cf0d6d596de052b787a99587cd40</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/driver/winc_adapter.h</file>
+         <hash>5bddc6e2e0ebdb7b866f879f9e7be13dda10bf851386493f650dcdf27c0dfab7</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/m2m/m2m_periph.c</file>
+         <hash>a848c66ebb46d75583469b112d22bd224a3d05d186ecb91595e3e4ceb27c8683</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/m2m/m2m_periph.h</file>
+         <hash>f98c6a61e5940ffb63539b3f4979afd3e906a06a0eba151211bff7deacf2bf90</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/traps.h</file>
+         <hash>0f79d1b727a0cc3b07892181f8e363af2c0ba32000583f04c44c9a2a8831763f</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/driver/winc_adapter.c</file>
+         <hash>ae54b31c8b8ff9a0c37786a192b66bc31f58fc3b46a85c8dfa0249b52828b048</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/mqtt/mqtt_winc_adapter.h</file>
+         <hash>a8c8038e2102fc5482ac64072fd9721914b53c6b1df71cffb340b83ca78f4b0c</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/traps.c</file>
+         <hash>6bb3b47d8b66553099858b7c8e229112600f6ff0dca38438f5a155d136de04a6</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/driver/winc_hif.c</file>
+         <hash>6f82f3529faa7f0ad94a819ada5931c229003ed184aab832306e219d3a074e54</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/spi_flash/flexible_flash.c</file>
+         <hash>f1da3f9a4f50ddb7f3b1231d0c407ed2cc3f8060f4f4b09cebadd1c6d63eef63</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/include/conf_winc_defaults.h</file>
+         <hash>09fcc4bba972c8e71cd27c80638575d65b2a1de255fbda0196e3122dab75ed97</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/m2m/m2m_ota.h</file>
+         <hash>e5d9c84757ad23e1e405c35ac71973c8608867184dbaf124abe08982ec53ff99</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/spi_flash/flexible_flash.h</file>
+         <hash>a301c111be496566ec624a1730d3d1c0b7bf3bbdff3d68af0424109493a22d5b</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/config/mqtt_config.h</file>
+         <hash>db6f492b3b0d30b5200203c7fb8e21a05f39ddc924f47cd14ac58d18a849aff6</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/system.h</file>
+         <hash>a140f17745b5f4ad04bd93a94b850f285059ade66a319fce530d43b0060a01ee</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/m2m/m2m_socket_host_if.h</file>
+         <hash>4e1d2c49b610ac39e2d1b70145763f31ecb6f45319e05abd810c2064298293bf</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/m2m/m2m_ota.c</file>
+         <hash>6585f6383be85da2433ac2b7675176d07ba8cd1f5ee2c73d02aa9f921c8ee56c</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/mqtt/mqtt_core/mqtt_core.h</file>
+         <hash>b8a1b336e4e1f73149d67b426938fdb10ce9dd8d01da3ddc55b4badc402d854b</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/examples/winc_example.h</file>
+         <hash>8e7438845980e3374bd952c1a157c884cc3e750c3b5d488076f5a8371fc21f3d</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/uart1.h</file>
+         <hash>ad48878593c590cae7705470efd1129e9c0c906ca56d081486592f69a3a45730</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/driver/winc_asic.c</file>
+         <hash>1614a5b224b3719d1a592c4cce277bbb76877348e0dd0d6e6de4080abcf5b08d</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/driver/winc_drv.h</file>
+         <hash>66b62029438b6217eea75eb0012eac8cf952da48c69a66afbbe60d007e092d58</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/driver/winc_asic.h</file>
+         <hash>ac569447dd015f000ea495f5c5202165f141b5ec3a6c7419930bf2904cc94f73</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/mqtt/mqtt_core/mqtt_core.c</file>
+         <hash>00d2ebdcc8efabb9fb30220e01e728a44bd143f86099f96c331425d3f33a0c53</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/m2m/m2m_fwinfo.h</file>
+         <hash>0c644a597f6728501f7c3469d078f3a73153b82b2c66fe3c665b1a552dfc3b4f</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/spi1_driver.c</file>
+         <hash>58b0cddfea0c6dcc75e19ec33223a1e4ce0cd3c00a8f4a28af234622e8039567</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/examples/winc_example.c</file>
+         <hash>65b4b17a94da4da6adc077475b92a70d31d29399841062ce8672994e752ce4f6</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/m2m/m2m_fwinfo.c</file>
+         <hash>6e0a2161f807cba90cc3db532d102dc03640db770a9b9bff5c9c423c3db14e2e</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/docs/spi_basic.dox</file>
+         <hash>a44690903480f96ed2a8a1605d29c339aca8ac9770e946ae77260a559aa40a6a</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/examples/mqtt_example.c</file>
+         <hash>4fd6172c04dbca85fbc5f665798de3c99a6c1ab2e4e677660c9d406be566a77f</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/include/winc_legacy.h</file>
+         <hash>8e0e493e16cd3d11afce847a8a2e516c1c8b86af09a525dec7837f941274f49b</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/spi_flash/spi_flash_map.h</file>
+         <hash>14fae3fae7e71a789f86095d606712e37408fd60b146588bca2c9182df0ccbb6</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/driver/winc_hif.h</file>
+         <hash>2116ae95b7be26fba14c1c1ca302b2959d2bbdab96cffc4ffa8280264836c0c9</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/examples/mqtt_example.h</file>
+         <hash>f4047cb968f316ce002e9a2c8f8f4f881b24ddc79c46b1f0fcbab3a8cc3fa15b</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/m2m/m2m_crypto.c</file>
+         <hash>d3890b1f813da0f39ea96a6b4b63c54fe349863f4f6be4cc4fbe5a3aedf52c23</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/m2m/m2m_crypto.h</file>
+         <hash>e0164e1f06a3e486714751bede7f7f87ea747ee881aa36b436a87077cb648ccb</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/spi_flash/spi_flash.h</file>
+         <hash>72c501daa30b434d864c759e3236f492422375890e1adbb2a826e2767092e73e</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/pin_manager.h</file>
+         <hash>c5e43eefbbfde0531666e09ed8ea9646ef3a6f6b33c693b3f99f3beff725183d</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/tmr1.c</file>
+         <hash>b303af92b122d2cf415ff6dd2463162fc2aac578dcaaf82810700b8247fbdade</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/common/winc_1500_3A0_registers.h</file>
+         <hash>f56b5c8f27c73c045fcacb59e0b33b5491c6254836fe565d24fefaaf641ad61e</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/m2m/m2m_types.h</file>
+         <hash>59799bf763cddcf1d88e8df480a50a111bd09b7dc4d3b012d8c97c054b3583f5</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/spi_flash/spi_flash.c</file>
+         <hash>aadd3775470342ab9622704a09d84ca4c531713727be3e564f0d55203ef23575</hash>
+      </entry>
       <entry>
          <file>main.c</file>
          <hash>3556013c510b184773e2a8b06d8dde866da1f9dfcff434faf1b558569869081f</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\clock.c</file>
-         <hash>fba7b1733587baecc86c30642ff822b379ec85b4f801d5b656d533575256130f</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\clock.h</file>
-         <hash>8f91e9ef9d0f02929e3385b071c96abe4481827ac68b33538c503439af74d0c6</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\config\conf_winc.h</file>
-         <hash>492329f3b11db65a53d30780aa442672f2d0f02377b13f814825a429907f7ff3</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\config\mqtt_config.h</file>
-         <hash>db6f492b3b0d30b5200203c7fb8e21a05f39ddc924f47cd14ac58d18a849aff6</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\delay.c</file>
-         <hash>4a6b8bbd5d2fbe5f20e79db8d915e50e2cd43920940679b40db90f3789cbccd5</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\delay.h</file>
-         <hash>dda77102dba9adc0f9aef1c8c542cfee6d6cccc96446f4cd1bf07be2150a4d95</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\docs\delay.dox</file>
-         <hash>13d4874d789b563dd4499efacd71882cbc38f8459da91ac17f13fa76079be93b</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\docs\mqtt_documentation\Microchip MQTT Client Library.docx</file>
-         <hash>4dcc1fbd232738af9478b08cc8c8fdd8a38e2e88bb68b3433243824882e9b8d4</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\docs\spi.dox</file>
-         <hash>518908892e2d8bc846cfc4b846e70d96c4f59fab7dbddc55fadee679aeaa9697</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\docs\spi_basic.dox</file>
-         <hash>a44690903480f96ed2a8a1605d29c339aca8ac9770e946ae77260a559aa40a6a</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\docs\timeout.dox</file>
-         <hash>3c65d3776f241b479b3fd6742bf67f99db0b35fafc6d7d4c4f17bb0de1eadac1</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\drivers\spi_master.c</file>
-         <hash>c1495dded93c9706fdd3e76e2ba891921a76f386a43d3c50c8cc5b3d7abbdcf4</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\drivers\spi_master.h</file>
-         <hash>bace676f4233a5a78e48ed72ad577ed646feffcf76072265f86b0629d1d793d6</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\drivers\timeout.c</file>
-         <hash>efb81fdf54635cf7675c5c6be1c3683a0f92267206976b450575931baee4b9fb</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\drivers\timeout.h</file>
-         <hash>dc81435b2bb23066ee458d00812dbeaea007dd27221e623b708a492e715c3b50</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\examples\mqtt_example.c</file>
-         <hash>4fd6172c04dbca85fbc5f665798de3c99a6c1ab2e4e677660c9d406be566a77f</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\examples\mqtt_example.h</file>
-         <hash>f4047cb968f316ce002e9a2c8f8f4f881b24ddc79c46b1f0fcbab3a8cc3fa15b</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\examples\winc_example.c</file>
-         <hash>65b4b17a94da4da6adc077475b92a70d31d29399841062ce8672994e752ce4f6</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\examples\winc_example.h</file>
-         <hash>8e7438845980e3374bd952c1a157c884cc3e750c3b5d488076f5a8371fc21f3d</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\interrupt_manager.c</file>
-         <hash>09bca2dfd0e9a8a24a0111314e709b2aee396312775f422c17a298fe33492f52</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\interrupt_manager.h</file>
-         <hash>185009b0f3b746e00e8c09637f547be83f31ef1a32d40a3870614653af97c273</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\mcc.c</file>
-         <hash>66a2eedc99c8bce81198406e3fb2214a6919241c440a72723cf042d2ce6dea79</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\mcc.h</file>
-         <hash>d006023651bcc4d9adc2a7f513cdfc6613a48767d0c78ea3e3a7ede0c308e38c</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\mqtt\mqtt_comm_bsd\mqtt_comm_layer.c</file>
-         <hash>28ffd4d8ae746156e7eeda587370dc368043ed3cc7b821888d5575fd12b10c97</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\mqtt\mqtt_comm_bsd\mqtt_comm_layer.h</file>
-         <hash>06bb656e465cebac964c5a2f4837d30f4636f84bd3cb5a78a9a904db5fbf8de5</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\mqtt\mqtt_core\mqtt_core.c</file>
-         <hash>00d2ebdcc8efabb9fb30220e01e728a44bd143f86099f96c331425d3f33a0c53</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\mqtt\mqtt_core\mqtt_core.h</file>
-         <hash>b8a1b336e4e1f73149d67b426938fdb10ce9dd8d01da3ddc55b4badc402d854b</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\mqtt\mqtt_exchange_buffer\mqtt_exchange_buffer.c</file>
-         <hash>96ab0feca163a47001dec282e574ca16f2188182d09c5f377e0faecc0d294c37</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\mqtt\mqtt_exchange_buffer\mqtt_exchange_buffer.h</file>
-         <hash>b1e6830bc0016a2ad57e3347aa115d54baa124e14fd1260db4e9ecf7f08e93b7</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\mqtt\mqtt_packetTransfer_interface.c</file>
-         <hash>95c54dcfde2ad6136ce6611f90a21f453f76610671396b3b83321b0aa0735c0a</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\mqtt\mqtt_packetTransfer_interface.h</file>
-         <hash>c9506eba58052554093cd95d99b8be4dea603d70ae55da97ac65a1e6a27a2e6e</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\mqtt\mqtt_winc_adapter.c</file>
-         <hash>38226893c43452f6416de2898d28199853e9cf0d6d596de052b787a99587cd40</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\mqtt\mqtt_winc_adapter.h</file>
-         <hash>a8c8038e2102fc5482ac64072fd9721914b53c6b1df71cffb340b83ca78f4b0c</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\pin_manager.c</file>
-         <hash>efd421ad9174ca23e37c53885725e112a22606859b78c0b43c43836966424365</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\pin_manager.h</file>
-         <hash>cda6ec0d1b9755e6eeb0cba5ea1c7e6d9369a5926ca7c1a599a12a882a1e3967</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\spi1_driver.c</file>
-         <hash>0d38dc1c6daab9f1ce87bf676b256a2f8fc580194981986051fea733ff52555a</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\spi1_driver.h</file>
-         <hash>2ff975d4194ae5d98866e455f01c747102da029135b7f7eedf44613f74fc464f</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\spi1_types.h</file>
-         <hash>ffbda95805986b40b906ac6cdf0b3ccdcf4cb4f337e7015fde21c6c2199f1d0c</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\system.c</file>
-         <hash>c657157d11e2a97d3243a46189e3c7bd6955d9b351232cfb43ace6aa9413809d</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\system.h</file>
-         <hash>91e29fbb15f7c4790772417900834e82ea2d23cd71e9f6776ae2b27e4d2852a8</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\tmr1.c</file>
-         <hash>92459f22f92410547741f1a873ebb86050d8d23cb1032b103427ac7fb6480108</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\tmr1.h</file>
+         <file>mcc_generated_files/tmr1.h</file>
          <hash>836f2f20acd339a3f918a7c9f0b251f131d77aeec0308f5f044cada146c05b15</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\traps.c</file>
-         <hash>6bb3b47d8b66553099858b7c8e229112600f6ff0dca38438f5a155d136de04a6</hash>
+         <file>mcc_generated_files/spi1_types.h</file>
+         <hash>ffbda95805986b40b906ac6cdf0b3ccdcf4cb4f337e7015fde21c6c2199f1d0c</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\traps.h</file>
-         <hash>0f79d1b727a0cc3b07892181f8e363af2c0ba32000583f04c44c9a2a8831763f</hash>
+         <file>mcc_generated_files/delay.c</file>
+         <hash>4a6b8bbd5d2fbe5f20e79db8d915e50e2cd43920940679b40db90f3789cbccd5</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\uart1.c</file>
-         <hash>e182590e9f57d74ffb579c8e84f7fb1b00b9d9e03670d7979bedcae651a2009a</hash>
+         <file>mcc_generated_files/mqtt/mqtt_exchange_buffer/mqtt_exchange_buffer.c</file>
+         <hash>96ab0feca163a47001dec282e574ca16f2188182d09c5f377e0faecc0d294c37</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\uart1.h</file>
-         <hash>ad48878593c590cae7705470efd1129e9c0c906ca56d081486592f69a3a45730</hash>
+         <file>mcc_generated_files/drivers/spi_master.h</file>
+         <hash>bace676f4233a5a78e48ed72ad577ed646feffcf76072265f86b0629d1d793d6</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\winc\common\ecc_types.h</file>
-         <hash>2cfd895d1cd5c63e48a34b855becda55947689f9e9751c543431a26baabe08bd</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\common\winc_1500_3A0_registers.h</file>
-         <hash>f56b5c8f27c73c045fcacb59e0b33b5491c6254836fe565d24fefaaf641ad61e</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\common\winc_debug.h</file>
-         <hash>f03094265eda1838b4b8fc721727f07ed688f0aa60a008b5bd82dcc68f7afb23</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\common\winc_defines.h</file>
-         <hash>89d82b8cc3db4bb58d8346db1c6b6ce7bfd8dfed078993e7613043188fce00c0</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\common\winc_registers.h</file>
-         <hash>2209cd7c94452ed454197a9ca5716e708bab810f67065d9e1b1836b6936f2dc2</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\driver\winc_adapter.c</file>
-         <hash>ae54b31c8b8ff9a0c37786a192b66bc31f58fc3b46a85c8dfa0249b52828b048</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\driver\winc_adapter.h</file>
-         <hash>5bddc6e2e0ebdb7b866f879f9e7be13dda10bf851386493f650dcdf27c0dfab7</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\driver\winc_asic.c</file>
-         <hash>1614a5b224b3719d1a592c4cce277bbb76877348e0dd0d6e6de4080abcf5b08d</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\driver\winc_asic.h</file>
-         <hash>ac569447dd015f000ea495f5c5202165f141b5ec3a6c7419930bf2904cc94f73</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\driver\winc_drv.c</file>
-         <hash>7911d708c715336c98ccc43e62b973743d8d5f68b9cb05113acdddf3d0f52f85</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\driver\winc_drv.h</file>
-         <hash>66b62029438b6217eea75eb0012eac8cf952da48c69a66afbbe60d007e092d58</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\driver\winc_hif.c</file>
-         <hash>6f82f3529faa7f0ad94a819ada5931c229003ed184aab832306e219d3a074e54</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\driver\winc_hif.h</file>
-         <hash>2116ae95b7be26fba14c1c1ca302b2959d2bbdab96cffc4ffa8280264836c0c9</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\driver\winc_spi.c</file>
-         <hash>71cd14676f4f54fd13c6a51f9512eda2e0cafca12e357a11e4aa6f85b6e0cce6</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\driver\winc_spi.h</file>
-         <hash>15b7f2632e2f40b4dccff1da1cec2908a69543eff9c87089f114ee3b904ed174</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\include\conf_winc_defaults.h</file>
-         <hash>09fcc4bba972c8e71cd27c80638575d65b2a1de255fbda0196e3122dab75ed97</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\include\winc.h</file>
-         <hash>0be9ee5bfc1a79a671c9aefe81e1dd2f463046394dc452bf2e33f6457cb51441</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\include\winc_legacy.h</file>
-         <hash>8e0e493e16cd3d11afce847a8a2e516c1c8b86af09a525dec7837f941274f49b</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\m2m\m2m_crypto.c</file>
-         <hash>d3890b1f813da0f39ea96a6b4b63c54fe349863f4f6be4cc4fbe5a3aedf52c23</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\m2m\m2m_crypto.h</file>
-         <hash>e0164e1f06a3e486714751bede7f7f87ea747ee881aa36b436a87077cb648ccb</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\m2m\m2m_fwinfo.c</file>
-         <hash>6e0a2161f807cba90cc3db532d102dc03640db770a9b9bff5c9c423c3db14e2e</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\m2m\m2m_fwinfo.h</file>
-         <hash>0c644a597f6728501f7c3469d078f3a73153b82b2c66fe3c665b1a552dfc3b4f</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\m2m\m2m_ota.c</file>
-         <hash>6585f6383be85da2433ac2b7675176d07ba8cd1f5ee2c73d02aa9f921c8ee56c</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\m2m\m2m_ota.h</file>
-         <hash>e5d9c84757ad23e1e405c35ac71973c8608867184dbaf124abe08982ec53ff99</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\m2m\m2m_periph.c</file>
-         <hash>a848c66ebb46d75583469b112d22bd224a3d05d186ecb91595e3e4ceb27c8683</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\m2m\m2m_periph.h</file>
-         <hash>f98c6a61e5940ffb63539b3f4979afd3e906a06a0eba151211bff7deacf2bf90</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\m2m\m2m_socket_host_if.h</file>
-         <hash>4e1d2c49b610ac39e2d1b70145763f31ecb6f45319e05abd810c2064298293bf</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\m2m\m2m_ssl.c</file>
-         <hash>50ec8a91074744056c71efcfffb3a25f44495b2ccd927f2bbdc1069385a251f2</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\m2m\m2m_ssl.h</file>
-         <hash>6450c81717635dca5ffb3bf941548ee7db123a07151ffd94f85555b9add3ba5e</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\m2m\m2m_types.h</file>
-         <hash>59799bf763cddcf1d88e8df480a50a111bd09b7dc4d3b012d8c97c054b3583f5</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\m2m\m2m_wifi.c</file>
-         <hash>99ba0b52461372454b01f88c2cde3a2fc81ee7a029d52e2f0ad57a703356291c</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\m2m\m2m_wifi.h</file>
-         <hash>b179b576c5fa127e144921bc50d6e5c705f62f8067229dd9af9c96e1e3f511b2</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\winc\socket\socket.c</file>
+         <file>mcc_generated_files/winc/socket/socket.c</file>
          <hash>b87a16fc56a593e07a1fa5917f150f5115577600cd5ae1c01d91748782d9515c</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\winc\socket\socket.h</file>
+         <file>mcc_generated_files/drivers/spi_master.c</file>
+         <hash>c1495dded93c9706fdd3e76e2ba891921a76f386a43d3c50c8cc5b3d7abbdcf4</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/spi1_driver.h</file>
+         <hash>2ff975d4194ae5d98866e455f01c747102da029135b7f7eedf44613f74fc464f</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/include/winc.h</file>
+         <hash>0be9ee5bfc1a79a671c9aefe81e1dd2f463046394dc452bf2e33f6457cb51441</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/winc/socket/socket.h</file>
          <hash>4c83afb9f5c075e66b513ad89379261d0e83c5bd8501604d01a9d16a137cb202</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\winc\spi_flash\flexible_flash.c</file>
-         <hash>f1da3f9a4f50ddb7f3b1231d0c407ed2cc3f8060f4f4b09cebadd1c6d63eef63</hash>
+         <file>mcc_generated_files/mqtt/mqtt_exchange_buffer/mqtt_exchange_buffer.h</file>
+         <hash>b1e6830bc0016a2ad57e3347aa115d54baa124e14fd1260db4e9ecf7f08e93b7</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\winc\spi_flash\flexible_flash.h</file>
-         <hash>a301c111be496566ec624a1730d3d1c0b7bf3bbdff3d68af0424109493a22d5b</hash>
+         <file>mcc_generated_files/drivers/timeout.c</file>
+         <hash>efb81fdf54635cf7675c5c6be1c3683a0f92267206976b450575931baee4b9fb</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\winc\spi_flash\spi_flash.c</file>
-         <hash>aadd3775470342ab9622704a09d84ca4c531713727be3e564f0d55203ef23575</hash>
+         <file>mcc_generated_files/uart1.c</file>
+         <hash>0a7dbeb45262371d20ad4c9bd6ac568e93ed635ab359ef0651008c86ff478359</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\winc\spi_flash\spi_flash.h</file>
-         <hash>72c501daa30b434d864c759e3236f492422375890e1adbb2a826e2767092e73e</hash>
+         <file>mcc_generated_files/winc/driver/winc_drv.c</file>
+         <hash>7911d708c715336c98ccc43e62b973743d8d5f68b9cb05113acdddf3d0f52f85</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\winc\spi_flash\spi_flash_map.h</file>
-         <hash>14fae3fae7e71a789f86095d606712e37408fd60b146588bca2c9182df0ccbb6</hash>
+         <file>mcc_generated_files/docs/delay.dox</file>
+         <hash>13d4874d789b563dd4499efacd71882cbc38f8459da91ac17f13fa76079be93b</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/drivers/timeout.h</file>
+         <hash>dc81435b2bb23066ee458d00812dbeaea007dd27221e623b708a492e715c3b50</hash>
       </entry>
    </generatedFileHashHistoryMap>
 </config>

@@ -49,6 +49,7 @@
 
 #include <stdio.h>
 #include "tmr1.h"
+#include "pin_manager.h"
 
 /**
  Section: File specific functions
@@ -92,10 +93,10 @@ void TMR1_Initialize (void)
 {
     //TMR1 0; 
     TMR1 = 0x00;
-    //Period = 1 s; Frequency = 4000000 Hz; PR1 62499; 
+    //Period = 1 s; Frequency = 16000000 Hz; PR1 62499; 
     PR1 = 0xF423;
-    //TCKPS 1:64; TON enabled; TSIDL disabled; TCS FOSC/2; TECS SOSC; TSYNC disabled; TGATE disabled; 
-    T1CON = 0x8020;
+    //TCKPS 1:256; TON enabled; TSIDL disabled; TCS FOSC/2; TECS SOSC; TSYNC disabled; TGATE disabled; 
+    T1CON = 0x8030;
 
     if(TMR1_InterruptHandler == NULL)
     {

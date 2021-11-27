@@ -207,6 +207,7 @@ static void socketHandler(SOCKET sock, uint8_t u8Msg, void *pvMsg)
             if (pstrConnect && pstrConnect->s8Error >= 0)
             {
                 changeState(APP_STATE_TLS_CONNECTED);
+                puts("TLS connected\n");
 
                 recv(sock, recvBuffer, sizeof(recvBuffer), 0);
             }
@@ -258,6 +259,7 @@ void app_mqttExampleInit(void)
     if (M2M_SUCCESS != m2m_wifi_init(&param))
     {
         // Add your custom error handler
+        //IO_ERROR_RB4_SetLow();
     }
     
     MQTT_ClientInitialise();
@@ -304,12 +306,15 @@ void app_mqttScheduler(void)
         case APP_STATE_STA_CONNECTING:
         {
             //puts("Connecting\n");
+            IO_WIFI_RC5_Toggle();
             break;
         }
 
         case APP_STATE_STA_CONNECTED:
         {
             puts("Connected\n");
+            IO_WIFI_RC5_SetLow(); //invert LED logic
+            
             socketInit();
             registerSocketCallback(socketHandler, dnsHandler);
             //changeState(APP_STATE_TLS_START);
@@ -360,16 +365,19 @@ void app_mqttScheduler(void)
         case APP_STATE_TLS_CONNECTING:
         {
             //puts("TLS Connecting\n");
+            IO_CONN_RC4_Toggle();
             break;
         }
 
         case APP_STATE_TLS_CONNECTED:
         {
-            puts("TLS connected\n");
+            IO_CONN_RC4_SetLow();
             if(appMQTTPublishTimeoutOccured == true)
             {
                 appMQTTPublishTimeoutOccured = false;
-                app_buildPublishPacket();    
+                app_buildPublishPacket();
+                puts("PacketSending\n");
+                IO_DATA_RC3_Toggle();
             }
 
             MQTT_ReceptionHandler(mqttConnnectionInfo);
@@ -380,6 +388,7 @@ void app_mqttScheduler(void)
         case APP_STATE_ERROR:
         {
             puts("Error\n");
+            IO_ERROR_RB4_SetLow();
             m2m_wifi_deinit(NULL);
             timeout_delete(&appMQTTPublishTimer);
             changeState(APP_STATE_STOPPED);

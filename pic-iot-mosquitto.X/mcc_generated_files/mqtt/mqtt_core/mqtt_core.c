@@ -1236,6 +1236,7 @@ mqttCurrentState MQTT_ReceptionHandler(mqttContext *mqttConnectionPtr)
                // SUBACK received
                if ((mqttRxFlags.newRxSubackPacket == 1) && (mqttTimeouts.subackTimeoutOccured == 0)) 
                {
+                  puts("subscribe ACK\n");
 	              timeout_delete(&subackTimer);
                   mqttState = mqttProcessSuback(mqttConnectionPtr);
                }
