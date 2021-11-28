@@ -83,7 +83,7 @@ void PIN_MANAGER_Initialize (void)
     IOCPDA = 0x0000;
     IOCPDB = 0x0000;
     IOCPDC = 0x0000;
-    IOCPUA = 0x1000;
+    IOCPUA = 0x1480;
     IOCPUB = 0x0000;
     IOCPUC = 0x0000;
 
@@ -106,8 +106,8 @@ void PIN_MANAGER_Initialize (void)
      ***************************************************************************/
     __builtin_write_OSCCONL(OSCCON & 0xbf); // unlock PPS
 
-    RPOR9bits.RP18R = 0x0008;    //RC2->SPI1:SCK1OUT
     RPINR18bits.U1RXR = 0x0019;    //RC9->UART1:U1RX
+    RPOR9bits.RP18R = 0x0008;    //RC2->SPI1:SCK1OUT
     RPOR12bits.RP24R = 0x0003;    //RC8->UART1:U1TX
     RPOR8bits.RP16R = 0x0007;    //RC0->SPI1:SDO1
     RPINR20bits.SDI1R = 0x001F;    //RA13->SPI1:SDI1
