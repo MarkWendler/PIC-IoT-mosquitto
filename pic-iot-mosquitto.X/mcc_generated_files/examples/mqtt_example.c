@@ -89,7 +89,7 @@ static void app_buildMQTTConnectPacket(void)
     appConnectPacket.connectVariableHeader.connectFlagsByte.All = 0x02;
     // Packets need to be sent to the server every 10s.
     appConnectPacket.connectVariableHeader.keepAliveTimer = CFG_MQTT_CONN_TIMEOUT;
-    appConnectPacket.clientID = "mchpskalkjflk456";
+    appConnectPacket.clientID = CFG_MQTT_CLIENTID;
     
     
     appConnectPacket.connectVariableHeader.connectFlagsByte.usernameFlag =1;
@@ -406,17 +406,18 @@ void app_mqttScheduler(void)
                 
                 
                 if(SW0_pressed){
-                    
+                    IO_DATA_RC3_SetLow();
                     app_buildPublishPacket("SW0_pressed");
                     puts("SW0_pressed\n");
                     SW0_pressed = false;
+                    IO_DATA_RC3_SetHigh();
                 }
                 else{ //TODO KeepAlive (PINGREQ) does not work so send ping manually if no other message
+                    IO_DATA_RC3_SetLow();
                     app_buildPublishPacket("Ping");
+                    IO_DATA_RC3_SetHigh();
                 }
-                puts("PublishTimeOut\n");
-                
-
+                //puts("PublishTimeOut\n");
             }
             MQTT_ReceptionHandler(mqttConnnectionInfo);
             MQTT_TransmissionHandler(mqttConnnectionInfo);

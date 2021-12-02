@@ -47,6 +47,7 @@
 #define CFG_MQTT_SERVERIPv4_HEX 0x05c45fd0 //not used, DNS above is used
 #define CFG_MQTT_USERNAME "microchip"
 #define CFG_MQTT_PASSWORD "microchip"
+#define CFG_MQTT_CLIENTID "mqtt_client_id"
 #define CFG_QOS 0
 #define CFG_PUBTOPIC "topics/publish"
 #define CFG_SUBTOPIC "topics/subscribe"
