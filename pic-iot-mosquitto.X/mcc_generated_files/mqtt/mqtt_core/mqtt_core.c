@@ -35,6 +35,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <xc.h>
 #include "../../drivers/timeout.h"
 #include "mqtt_core.h"
 #include "../mqtt_packetTransfer_interface.h"
@@ -503,6 +504,7 @@ static uint32_t checkUnsubackTimeoutState()
 
 void MQTT_initialiseState(void) 
 {
+    puts("Disconnected1");
 	mqttState = DISCONNECTED;   
 }
 
@@ -585,7 +587,7 @@ bool MQTT_CreateConnectPacket(mqttConnectPacket *newConnectPacket)
 bool MQTT_CreatePublishPacket(mqttPublishPacket *newPublishPacket) 
 {
    bool ret;
-
+   
    ret = false;
    
    memset(&txPublishPacket, 0, sizeof (txPublishPacket));
@@ -833,6 +835,7 @@ mqttCurrentState MQTT_Disconnect(mqttContext* connectionInfo)
       timeout_delete(&pingreqTimer);
       mqttSendDisconnect(connectionInfo);
       mqttState = DISCONNECTED;
+      puts("Disconnected2");
    }
 
    return mqttState;
@@ -1105,6 +1108,7 @@ mqttCurrentState MQTT_TransmissionHandler(mqttContext *mqttConnectionPtr)
                   else 
                   {
                     mqttState = DISCONNECTED;
+                        puts("Disconnected3");
                   }
                   break;
                case SENDSUBSCRIBE:
@@ -1158,6 +1162,7 @@ mqttCurrentState MQTT_ReceptionHandler(mqttContext *mqttConnectionPtr)
 	  // This is treated as a protocol violation. The client therefore
 	  // will close the Network Connection (MQTT RFC, section 4.8).
 	  mqttState = DISCONNECTED;
+      puts("Disconnected4");
       MQTT_Close(mqttConnectionPtr);
    }
    // If nothing to process
@@ -1206,12 +1211,14 @@ mqttCurrentState MQTT_ReceptionHandler(mqttContext *mqttConnectionPtr)
                //If the Client does not receive a CONNACK Packet from the Server within a reasonable amount of time,
                //the Client SHOULD close the Network Connection.
                mqttState = DISCONNECTED;
+                   puts("Disconnected5");
                MQTT_Close(mqttConnectionPtr);
             }
          } 
          else 
          {
             mqttState = DISCONNECTED;
+                puts("Disconnected6");
             MQTT_Close(mqttConnectionPtr);
 			
 			lastMQTTHandlerState = MQTT_CONNACK_TIMEOUT;
@@ -1266,6 +1273,7 @@ mqttCurrentState MQTT_ReceptionHandler(mqttContext *mqttConnectionPtr)
          
       default:
 		 mqttState = MQTT_UNKNOWN_RECEIVE_STATE;
+             puts("Unnokwn state");
          break;
    }
 

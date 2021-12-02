@@ -329,7 +329,7 @@ void app_mqttScheduler(void)
 
         case APP_STATE_STA_CONNECTED:
         {
-            puts("Connected\n");
+            puts("WIFI Connected\n");
             IO_WIFI_RC5_SetLow(); //invert LED logic
             
             socketInit();
