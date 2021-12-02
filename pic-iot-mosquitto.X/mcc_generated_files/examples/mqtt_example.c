@@ -32,7 +32,7 @@
 #define CONN_AUTH CFG_MAIN_WLAN_AUTH
 #define CONN_PASSWORD CFG_MAIN_WLAN_PSK
 //this macro represents the name of the domain 
-#define MAIN_HOST_NAME "test.mosquitto.org"
+#define MAIN_HOST_NAME CFG_MQTT_HOSTURL
 /** Using IP address. */
 #define IPV4_BYTE(val, index) ((val >> (index * 8)) & 0xFF)
 
@@ -51,18 +51,25 @@ typedef enum
 
 
 static const char mqttPublishTopic[] = CFG_PUBTOPIC;
-const char mqttPublishMsg[] = "mchp payload";
+static const char mqttPublishTopic_bootDone[] = CFG_PUBTOPIC;
+
+
 static const char mqttSubscribeTopicsList[NUM_TOPICS_SUBSCRIBE][SUBSCRIBE_TOPIC_SIZE] = {{CFG_SUBTOPIC}};
 static appStates_e appState = APP_STATE_INIT;
 static uint32_t serverIPAddress = 0;
 static uint8_t recvBuffer[256];
 static bool timeReceived = false;
+
+
+bool bootDonePublishSent = false; //indicate first publish sent to indicate boot
+bool SW0_pressed = false;
+
 static bool appMQTTPublishTimeoutOccured = false;
 static char server_host_name[] = MAIN_HOST_NAME;
 
 
 static void app_buildMQTTConnectPacket(void);
-static void app_buildPublishPacket(void);
+static void app_buildPublishPacket(const char *);
 static uint32_t appCheckMQTTPublishTimeout();
 timerStruct_t appMQTTPublishTimer = {appCheckMQTTPublishTimeout, NULL};
 
@@ -83,19 +90,29 @@ static void app_buildMQTTConnectPacket(void)
     // Packets need to be sent to the server every 10s.
     appConnectPacket.connectVariableHeader.keepAliveTimer = CFG_MQTT_CONN_TIMEOUT;
     appConnectPacket.clientID = "mchpskalkjflk456";
+    
+    
+    appConnectPacket.connectVariableHeader.connectFlagsByte.usernameFlag =1;
+    appConnectPacket.username = CFG_MQTT_USERNAME;
+    appConnectPacket.usernameLength = strlen(appConnectPacket.username);
+    
+        appConnectPacket.connectVariableHeader.connectFlagsByte.passwordFlag =1;
+    appConnectPacket.password = CFG_MQTT_PASSWORD;
+    appConnectPacket.passwordLength = strlen(appConnectPacket.password);
+    
 
     MQTT_CreateConnectPacket(&appConnectPacket);
 }
 
-
-static void app_buildPublishPacket(void)
+static void app_buildPublishPacket(const char *message)
 {
     mqttPublishPacket appPublishPacket;
+    
     
     memset(&appPublishPacket, 0, sizeof(mqttPublishPacket));   
       
     appPublishPacket.topic = mqttPublishTopic;
-    appPublishPacket.payload = mqttPublishMsg;
+    appPublishPacket.payload = message;
 
     // Fixed header
     appPublishPacket.publishHeaderFlags.duplicate = 0;
@@ -372,14 +389,35 @@ void app_mqttScheduler(void)
         case APP_STATE_TLS_CONNECTED:
         {
             IO_CONN_RC4_SetLow();
-            if(appMQTTPublishTimeoutOccured == true)
-            {
-                appMQTTPublishTimeoutOccured = false;
-                app_buildPublishPacket();
-                puts("PacketSending\n");
-                IO_DATA_RC3_Toggle();
+            
+            if((!IO_SW0_RA7_GetValue()) && (SW0_pressed == false)){
+                SW0_pressed = true;
             }
+            if (appMQTTPublishTimeoutOccured == true) {
+                
+                appMQTTPublishTimeoutOccured = false;
+                //app_buildPublishPacket("KeepAlive?");
+                if(bootDonePublishSent == false){ //send bootDone
+                    app_buildPublishPacket("BootDone");
+                    bootDonePublishSent = true;
+                }
 
+
+                
+                
+                if(SW0_pressed){
+                    
+                    app_buildPublishPacket("SW0_pressed");
+                    puts("SW0_pressed\n");
+                    SW0_pressed = false;
+                }
+                else{ //TODO KeepAlive (PINGREQ) does not work so send ping manually if no other message
+                    app_buildPublishPacket("Ping");
+                }
+                puts("PublishTimeOut\n");
+                
+
+            }
             MQTT_ReceptionHandler(mqttConnnectionInfo);
             MQTT_TransmissionHandler(mqttConnnectionInfo);
         }
@@ -399,6 +437,7 @@ void app_mqttScheduler(void)
         case APP_STATE_STOPPED:
         {
             puts("Stopped\n");
+            IO_ERROR_RB4_SetLow();
             changeState(APP_STATE_INIT);
             break;
         }

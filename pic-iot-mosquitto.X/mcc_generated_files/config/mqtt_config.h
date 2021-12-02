@@ -43,17 +43,19 @@
 
 // MCC generated parameters
 #define CFG_MQTT_PORT 1883
-#define CFG_MQTT_HOSTURL ""
-#define CFG_MQTT_SERVERIPv4_HEX 0x05c45fd0
-#define CFG_MQTT_CONN_TIMEOUT 10
-#define CFG_MQTT_TXBUFFER_SIZE 400
-#define CFG_MQTT_RXBUFFER_SIZE 200
+#define CFG_MQTT_HOSTURL "your.mqttserver.com"
+#define CFG_MQTT_SERVERIPv4_HEX 0x05c45fd0 //not used, DNS above is used
 #define CFG_MQTT_USERNAME "microchip"
 #define CFG_MQTT_PASSWORD "microchip"
 #define CFG_QOS 0
-#define CFG_PUBTOPIC "mateiB"
-#define CFG_SUBTOPIC "matei"
+#define CFG_PUBTOPIC "topics/publish"
+#define CFG_SUBTOPIC "topics/subscribe"
 #define TCPIP_BSD 1
+ 
+#define CFG_MQTT_CONN_TIMEOUT 10
+#define CFG_MQTT_TXBUFFER_SIZE 400
+#define CFG_MQTT_RXBUFFER_SIZE 200
+
 
 /********************MQTT Client configurations*(END)***********************/
 
